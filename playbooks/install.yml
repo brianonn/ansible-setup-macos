@@ -1,0 +1,34 @@
+---
+
+##
+## Run the install roles. 
+##   creates the download dir for the install roles
+##
+- name: Install apps
+  hosts: local
+  gather_facts: no
+
+# - import_playbook: apps/slack.yml
+# - import_playbook: apps/postman.yml
+# - import_playbook: apps/chrome.yml
+# - import_playbook: apps/firefox.yml
+# - import_playbook: apps/vscode.yml
+# - import_playbook: apps/meld.yml
+# - import_playbook: apps/sqlitebrowser.yml
+# - import_playbook: apps/jumpcut.yml
+# - import_playbook: apps/typora.yml
+- import_playbook: apps/sizeup.yml
+
+- name: Install base utilities
+  hosts: local
+  tasks:
+  - homebrew:
+      name:
+        - m-cli
+        - dockutil
+      state: present
+
+- name: Setup Preferences
+  hosts: local
+  tasks:
+  - import_tasks: prefs.yml

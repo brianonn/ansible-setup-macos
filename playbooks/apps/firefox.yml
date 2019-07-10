@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Firefox Browser
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Firefox
+    app_url: https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en-US
+    installer_type: app
+    install_method: dmg
+    download_filetype: dmg
+    add_to_dock: yes
+  roles:
+    - init
+    - install
+    - cleanup

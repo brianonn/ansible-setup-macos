@@ -1,0 +1,10 @@
+---
+
+##
+## ensure that an existing app is removed first
+##
+- name: 'Remove an exising app before re-install'
+  file:
+    path: '/Applications/{{ app_name }}.app'
+    state: absent
+  when: installer_type == 'app'

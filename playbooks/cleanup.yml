@@ -1,0 +1,11 @@
+---
+
+##
+## Run the cleanup role. 
+##   removes the download dir and any temporary files
+##
+- name: Cleanup and remove tmp install directory
+  hosts: local
+  gather_facts: no
+  roles:
+    - cleanup

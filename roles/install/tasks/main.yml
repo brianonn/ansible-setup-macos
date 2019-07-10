@@ -1,0 +1,26 @@
+---
+##
+## run the main tasks for an install. 
+## it will includee tasks as needed for the type of installs
+## TODO: brew installs
+## TODO: tar installs
+##
+
+- include: download.yml
+
+- include: extract.yml
+  when: ( download_filetype == 'zip' or download_filetype == 'tar' or download_filetype == 'tgz' or download_filetype == 'tar.gz' )
+
+- include: rm_app.yml
+
+- include: dmg_mount.yml
+  when: download_filetype == 'dmg'
+
+- include: copy_app.yml
+  when: installer_type == 'app'
+
+- include: dmg_unmount.yml
+  when: download_filetype == 'dmg'
+
+- include: dock.yml
+  when: add_to_dock 

@@ -1,0 +1,15 @@
+---
+
+## use Apple tools to mount a dmg, then sets the
+##  install_src fact to the newly mounted path
+## use the argv format for the command module in case there are spaces in mount_path or app_name
+- name: 'Unmount {{ app_name }} image'
+  command: 
+    argv:
+      - 'hdiutil'
+      - 'detach'
+      - '{{ mount_path }}/{{ app_name }}'
+
+- name: 'Changing install source back dir to {{ download_dir }}'
+  set_fact: 
+    install_src: '{{ download_dir }}'

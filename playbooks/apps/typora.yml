@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Typora App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Typora
+    app_url: 'https://typora.io/download/Typora.dmg'
+    installer_type: app
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: yes
+  roles: 
+    - init
+    - install
+    - cleanup

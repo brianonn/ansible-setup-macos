@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install SizeUp App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: SizeUp
+    app_url: 'http://www.irradiatedsoftware.com/download/SizeUp.zip'
+    installer_type: app
+    download_filetype: zip
+    install_method: dmg
+    add_to_dock: yes
+  roles:
+    - init
+    - install
+    - cleanup

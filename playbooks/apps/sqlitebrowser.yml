@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install DB Browser for SQLite
+  become: no
+  gather_facts: no
+  vars:
+    app_name: 'DB Browser for SQLite'
+    app_url: 'https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.11.2.dmg'
+    installer_type: app
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: yes
+  roles: 
+    - init
+    - install
+    - cleanup

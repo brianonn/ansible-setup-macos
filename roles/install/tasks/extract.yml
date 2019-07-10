@@ -1,0 +1,10 @@
+---
+
+##
+## unzip a downloaded file
+##
+- name: 'Extracting {{ app_name }} from the downloaded archive '
+  unarchive: 
+    src: '{{ download_dir }}/{{ app_name }}.{{ download_filetype }}'
+    dest: '{{ download_dir }}/'
+    copy: false

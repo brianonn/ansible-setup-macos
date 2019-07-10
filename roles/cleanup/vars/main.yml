@@ -1,0 +1,3 @@
+---
+tmp_downloads: "{{ lookup('env','HOME') }}/.tmp-ansible-downloads"
+mount_path: /Volumes

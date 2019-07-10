@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Postman App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Postman
+    app_url: 'https://dl.pstmn.io/download/latest/osx'
+    installer_type: app
+    download_filetype: zip
+    install_method: dmg
+    add_to_dock: yes
+  roles:
+    - init
+    - install
+    - cleanup

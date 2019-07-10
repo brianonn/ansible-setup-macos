@@ -1,0 +1,8 @@
+---
+
+## Download the named app into the download directory
+
+- name: Download {{ app_name }} to {{ download_dir }}
+  get_url:
+    url: "{{ app_url }}"
+    dest: "{{ download_dir }}/{{ app_name }}.{{ download_filetype }}"

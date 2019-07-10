@@ -1,0 +1,78 @@
+---
+## An Array of tasks
+
+##
+## This prefs.yml is intended to be imported via import_tasks as part of install.yml
+##
+
+- name: Remove all items from the Dock
+  shell: /usr/local/bin/dockutil --remove all
+
+- name: Set the default Dock items
+  shell: "/usr/local/bin/dockutil --add {{ item }} --no-restart"
+  with_items:
+    - '/Applications/Firefox.app'
+    - '"/Applications/App Store.app"'
+    - '"/Applications/System Preferences.app"'
+    - '/Applications/Utilities/Terminal.app'
+    - '/Applications/Utilities/Console.app'
+    - '/Applications/Notes.app'
+    - '/Applications/Typora.app'
+    - '"/Applications/Visual Studio Code.app"'
+    - '/Applications/Slack.app'
+    - '/Applications/Postman.app'
+    - '/Applications --section others'
+    - '~/Downloads --section others'
+  loop_control:
+    pause: 3
+
+- name: Restart the Dock
+  shell: killall Dock
+
+- name: Reduce the size of the Dock to 48 points
+  shell: defaults write com.apple.dock tilesize -int 48
+
+- name: Disable the Screensaver
+  shell: defaults write com.apple.screensaver idleTime 0
+
+- name: Arrange Files by Kind
+  shell: |
+    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
+
+- name: Set the Grid Spacing for Files
+  shell: |
+    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 54" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 30" ~/Library/Preferences/com.apple.finder.plist
+
+- name: Use Smaller Icons
+  shell: |
+    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 48" ~/Library/Preferences/com.apple.finder.plist
+    /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
+
+- name: Show ~/Library
+  shell: chflags nohidden ~/Library
+
+- name: Show Drives on the Desktop
+  shell: defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+
+- name: Show External Drives on the Desktop
+  shell: defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+
+- name: Show Removable Media on the Desktop
+  shell: defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+- name: Show Hidden Files
+  shell: defaults write com.apple.finder AppleShowAllFiles -bool true
+
+- name: Show File Extensions
+  shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+- name: Show the Status Bar in Finder
+  shell: defaults write com.apple.finder ShowStatusBar -bool true
+
+- name: Show the Path Bar in Finder
+  shell: defaults write com.apple.finder ShowPathbar -bool true
+
+- name: Restart Finder
+  shell: killall Finder

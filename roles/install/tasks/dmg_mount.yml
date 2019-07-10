@@ -1,0 +1,22 @@
+---
+
+##
+## mount the DMG file 
+## I use the argv: form since it ensures proper argument passing if the DMG has spaces in the name
+##
+
+- name: 'Mount {{ app_name }} image'
+  command: 
+    argv:
+      - 'hdiutil'
+      - 'attach'
+      - '{{ app_name }}.dmg'
+      - '-mountpoint'
+      - '{{ mount_path }}/{{ app_name }}'
+  args:
+    chdir: '{{ download_dir }}'
+    creates: '{{ mount_path }}/{{ app_name }}'
+
+- name: 'Changing install source dir to {{ mount_path }}/{{ app_name }}'
+  set_fact: 
+    install_src: '{{ mount_path }}/{{ app_name }}'

@@ -1,0 +1,14 @@
+---
+
+##
+## copy app to /applications 
+## I use the argv: form since it ensures proper argument passing if the app has spaces in the name
+##
+
+- name: 'Copy {{ install_src }}/{{ app_name }}.app to /Applications directory'
+  command: 
+    argv: 
+      - 'cp'
+      - '-R' 
+      - '{{ install_src }}/{{ app_name }}.app'
+      - '/Applications'

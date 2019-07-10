@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Google Chrome
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Google Chrome
+    app_url: https://dl.google.com/chrome/mac/stable/CHFA/googlechrome.dmg
+    installer_type: app
+    install_method: dmg
+    download_filetype: dmg
+    add_to_dock: yes
+  roles: 
+    - init
+    - install
+    - cleanup

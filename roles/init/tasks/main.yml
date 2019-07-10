@@ -1,0 +1,9 @@
+---
+- name: 'Create temporary downloads dir'
+  file: 
+    path: '{{ download_dir }}'
+    state: directory
+
+- name: 'Set installer source dir to {{ download_dir }}'
+  set_fact: 
+    install_src: '{{ download_dir }}'

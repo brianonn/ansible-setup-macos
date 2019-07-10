@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Jumpcut App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Jumpcut
+    app_url: 'https://downloads.sourceforge.net/jumpcut/Jumpcut_0.63.tgz'
+    installer_type: app
+    download_filetype: tgz
+    install_method: dmg
+    add_to_dock: no
+  roles: 
+    - init
+    - install
+    - cleanup

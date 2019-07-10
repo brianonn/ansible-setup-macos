@@ -1,0 +1,5 @@
+---
+- name: Delete the temporary downloads dir
+  file: 
+    path: "{{ download_dir }}"
+    state: absent
