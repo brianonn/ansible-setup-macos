@@ -1,0 +1,15 @@
+## An Array of tasks
+
+##
+## This brew.yml is intended to be imported via import_tasks as part of install.yml
+##
+
+- name: Install all homebrew items
+  homebrew:
+    name:
+      - m-cli
+      - dockutil
+      - ag
+      - tmux
+      - emacs
+    state: present

@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Emacs for OSX
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Emacs
+    app_url: 'https://emacsformacosx.com/emacs-builds/Emacs-26.2-universal.dmg'
+    installer_type: app
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: yes
+  roles: 
+    - init
+    - install
+    - cleanup

@@ -27,11 +27,7 @@
 - name: Install base utilities
   hosts: local
   tasks:
-  - homebrew:
-      name:
-        - m-cli
-        - dockutil
-      state: present
+  - import_tasks: brew.yml
 
 - name: Setup Preferences
   hosts: local

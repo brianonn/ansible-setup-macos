@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Karabiner keyboard remapper
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Karabiner
+    app_url: https://pqrs.org/osx/karabiner/files/Karabiner-Elements-12.5.0.dmg
+    installer_type: app
+    install_method: dmg
+    download_filetype: dmg
+    add_to_dock: no
+  roles:
+    - init
+    - install
+    - cleanup
