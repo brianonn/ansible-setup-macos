@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Iterm2 App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Iterm
+    app_url: 'https://iterm2.com/downloads/stable/iTerm2-3_2_9.zip'
+    installer_type: app
+    download_filetype: zip
+    install_method: dmg
+    add_to_dock: yes
+  roles:
+    - init
+    - install
+    - cleanup

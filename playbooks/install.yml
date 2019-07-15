@@ -8,16 +8,21 @@
   hosts: local
   gather_facts: no
 
-# - import_playbook: apps/slack.yml
-# - import_playbook: apps/postman.yml
-# - import_playbook: apps/chrome.yml
-# - import_playbook: apps/firefox.yml
-# - import_playbook: apps/vscode.yml
-# - import_playbook: apps/meld.yml
-# - import_playbook: apps/sqlitebrowser.yml
-# - import_playbook: apps/jumpcut.yml
-# - import_playbook: apps/typora.yml
+
+- import_playbook: apps/iterm2.yml
+- import_playbook: apps/slack.yml
+- import_playbook: apps/postman.yml
+- import_playbook: apps/chrome.yml
+- import_playbook: apps/firefox.yml
+- import_playbook: apps/vscode.yml
+- import_playbook: apps/meld.yml
+- import_playbook: apps/sqlitebrowser.yml
+#- import_playbook: apps/jumpcut.yml
+- import_playbook: apps/typora.yml
 - import_playbook: apps/sizeup.yml
+- import_playbook: apps/docker.yml
+- import_playbook: apps/vagrant.yml
+- import_playbook: apps/virtualbox.yml
 
 - name: Install base utilities
   hosts: local

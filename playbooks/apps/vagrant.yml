@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install Hashicorp Vagrant
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Vagrant
+    app_url: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.dmg
+    installer_type: pkg
+    install_method: dmg
+    download_filetype: dmg
+    add_to_dock: yes
+  roles:
+    - init
+    - install
+    - cleanup

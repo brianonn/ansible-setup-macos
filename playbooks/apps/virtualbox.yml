@@ -1,0 +1,22 @@
+---
+
+## THis may never work except downloading, because it fails and needs special permissions
+## see : https://matthewpalmer.net/blog/2017/12/10/install-virtualbox-mac-high-sierra/index.html
+##
+- hosts: local
+  name: Install Virtualbox
+  become: no
+  gather_facts: no
+  vars:
+    app_name: VirtualBox
+    app_url: 'https://download.virtualbox.org/virtualbox/6.0.8/VirtualBox-6.0.8-130520-OSX.dmg'
+    installer_type: pkg
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: yes
+  roles: 
+    - init
+    - install
+    - cleanup
+
+## TODO: download and script the extension pack installation too
