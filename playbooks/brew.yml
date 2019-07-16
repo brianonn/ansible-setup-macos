@@ -12,4 +12,5 @@
       - ag
       - tmux
       - emacs
+      - pandoc
     state: present
