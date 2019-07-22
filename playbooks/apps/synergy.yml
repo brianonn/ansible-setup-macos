@@ -1,4 +1,6 @@
 ---
+# Synergy needs to be added to the accessibility list.
+# The 'accessibility: yes' flag is a placeholder and does nothing
 - hosts: local
   name: Install Synergy 1.8.8 App
   become: no
@@ -10,6 +12,7 @@
     download_filetype: dmg
     install_method: dmg
     add_to_dock: no
+    accessibility: yes
   roles:
     - init
     - install
