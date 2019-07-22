@@ -1,0 +1,31 @@
+---
+### not working, it's interactive, and also needs to have a .sh based installer
+##
+## This needs to install to a users local path, since it uses the binaries inside like a package
+## and so you can't remove it
+## use the vars_prompt to get preset for the install.sh script
+##
+- hosts: local
+  name: Install Google Cloud SDK
+  become: no
+  gather_facts: no
+  vars_prompt:
+    - name: sdk_usage_reporting
+      prompt: "Send anonymous usage data to Google [Y/N]?"
+      default: "N"
+    - name: sdk_rc_path
+      prompt: "Which RC file should be updated (i.e. .bashrc)"
+      default: "{{ lookup('env','HOME') }}/.bashrc"
+  vars:
+    gcloud_sdk_components: 'foo bar'
+    app_name: google-cloud-sdk
+    app_url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-254.0.0-darwin-x86_64.tar.gz'
+    download_filetype: tgz
+    installer_type: cp
+    install_dest: "{{ lookup('env','HOME') }}/Library/GoogleCloudSDK"
+    install_cmd: 'install.sh --quiet --usage-reporting {{sdk_usage_reporting}} --rc-path {{sdk_rc_path}} --additional-components {{gcloud_sdk_components}}'
+    add_to_dock: no
+  roles:
+    - init
+    - install
+    - cleanup

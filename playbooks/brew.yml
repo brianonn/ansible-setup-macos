@@ -1,8 +1,18 @@
+---
+
 ## An Array of tasks
 
 ##
 ## This brew.yml is intended to be imported via import_tasks as part of install.yml
 ##
+
+#
+## Note: installing GNU Tar requires PATH and MANPATH changes in bashrc
+##
+## This might need to have a gnu-tar playbook separate from this one.
+##
+##     export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+##     export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 
 - name: Install all homebrew items
   homebrew:
@@ -13,4 +23,19 @@
       - tmux
       - emacs
       - pandoc
+      - gnu-tar
+      - mercurial  # needed for GVM (Go Version Manager)
+      - coreutils
+      - binutils
+      - diffutils
+      - gzip
+      - watch
+      - tmux
+      - wget
+      - nmap
+      - gpg
+      - htop
+      - golang
+      - dep
+
     state: present
