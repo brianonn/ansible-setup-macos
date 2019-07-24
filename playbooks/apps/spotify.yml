@@ -1,0 +1,19 @@
+---
+# Synergy needs to be added to the accessibility list.
+# The 'accessibility: yes' flag is a placeholder and does nothing
+- hosts: local
+  name: Install Spotify App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Spotify
+    app_url: 'https://download.scdn.co/Spotify-0.8.5.dmg'
+    installer_type: app
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: yes
+    accessibility: yes
+  roles:
+    - init
+    - install
+    - cleanup
