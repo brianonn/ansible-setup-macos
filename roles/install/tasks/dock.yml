@@ -2,16 +2,16 @@
 
 ## put the app into the dock
 
-- name: Adding {{ app_name }} to the dock
+- name: 'Adding {{ app_name }} to the dock'
   register: dock_write
-  command: 
+  command:
     argv:
-    - defaults 
-    - write 
+    - defaults
+    - write
     - com.apple.dock
-    - persistent-apps 
-    - -array-add 
-    - 
+    - persistent-apps
+    - -array-add
+    -
       <dict>
       <key>tile-data</key>
       <dict>
