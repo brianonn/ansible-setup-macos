@@ -27,3 +27,6 @@
 
 - include: dock.yml
   when: add_to_dock
+
+- include: accessibility.yml
+  when: accessibility == true

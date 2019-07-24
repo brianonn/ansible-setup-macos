@@ -1,0 +1,9 @@
+---
+
+## put the app into the accessibility list in system prefs
+## can probably be done, I don't know how yet.
+
+- name: 'Adding {{ app_name }} to accessibility list'
+  register: accessibility_write
+  debug:
+    msg: '**ATTENTION** You must add {{ app_name }} to the accessibility pane in system prefs manually'
