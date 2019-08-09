@@ -20,7 +20,7 @@
   when: installer_type == 'app'
 
 - include: copy_dest.yml
-  when: installer_type == 'cp'
+  when: installer_type == 'copy'
 
 - include: dmg_unmount.yml
   when: download_filetype == 'dmg'

@@ -21,7 +21,7 @@
     app_name: google-cloud-sdk
     app_url: 'https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-254.0.0-darwin-x86_64.tar.gz'
     download_filetype: tgz
-    installer_type: cp
+    installer_type: copy
     install_dest: "{{ lookup('env','HOME') }}/Library/GoogleCloudSDK"
     install_cmd: 'install.sh --quiet --usage-reporting {{sdk_usage_reporting}} --rc-path {{sdk_rc_path}} --additional-components {{gcloud_sdk_components}}'
     add_to_dock: no

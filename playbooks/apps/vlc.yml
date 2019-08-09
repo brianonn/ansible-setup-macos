@@ -1,0 +1,16 @@
+---
+- hosts: local
+  name: Install VLC Video Player App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: vlc
+    app_url: 'https://get.videolan.org/vlc/3.0.7.1/macosx/vlc-3.0.7.1.dmg'
+    installer_type: app
+    download_filetype: dmg
+    install_method: dmg
+    add_to_dock: no
+  roles:
+    - init
+    - install
+    - cleanup

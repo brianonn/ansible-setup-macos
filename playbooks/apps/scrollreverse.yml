@@ -1,0 +1,18 @@
+---
+- hosts: local
+  name: Install Scroll Reverser App
+  become: no
+  gather_facts: no
+  vars:
+    app_name: Scroll Reverser
+    app_url: 'https://pilotmoon.com/downloads/ScrollReverser-1.7.6.zip'
+    installer_type: copy
+    download_filetype: zip
+    install_method: copy
+    install_dest: /Applications/Utilities
+    add_to_dock: no
+    accessibility: yes
+  roles:
+    - init
+    - install
+    - cleanup
