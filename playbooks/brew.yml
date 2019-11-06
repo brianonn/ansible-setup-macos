@@ -16,26 +16,48 @@
 
 - name: Install all homebrew items
   homebrew:
-    name:
-      - m-cli
-      - dockutil
-      - ag
-      - tmux
-      - emacs
-      - pandoc
-      - gnu-tar
-      - mercurial  # needed for GVM (Go Version Manager)
-      - coreutils
-      - binutils
-      - diffutils
-      - gzip
-      - watch
-      - tmux
-      - wget
-      - nmap
-      - gpg
-      - htop
-      - golang
-      - dep
-
     state: present
+    name:
+      - ag
+      - awscli
+      - binutils
+      - colordiff
+      - coreutils
+      - dep
+      - diffutils
+      - dockutil
+      - doctl
+      - emacs
+      - gnu-tar
+      - gnupg
+      - gnutls
+      - go
+      - gpg
+      - gzip
+      - htop
+      - hub
+      - jq
+      - kubernetes-cli
+      - kubernetes-helm
+      - m-cli
+      - mercurial  # needed for GVM (Go Version Manager)
+      - ncftp
+      - ncurses
+      - nmap
+      - openssl
+      - pandoc
+      - pcre
+      - python@2
+      - python@3
+      - readline
+      - shellcheck
+      - sops
+      - sqlite
+      - terraform
+      - the_silver_searcher
+      - tmux
+      - tree
+      - watch
+      - watch
+      - wget
+      - xz
