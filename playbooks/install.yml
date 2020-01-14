@@ -17,7 +17,7 @@
 - import_playbook: apps/vscode.yml
 - import_playbook: apps/meld.yml
 - import_playbook: apps/sqlitebrowser.yml
-#- import_playbook: apps/jumpcut.yml
+  #- import_playbook: apps/jumpcut.yml
 - import_playbook: apps/typora.yml
 - import_playbook: apps/sizeup.yml
 - import_playbook: apps/docker.yml
