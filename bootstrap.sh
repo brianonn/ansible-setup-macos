@@ -1,10 +1,12 @@
 #!/bin/bash
 
-## Bootstrap the installation of ansible on MacOS so that I can continue 
+## Bootstrap the installation of ansible on MacOS so that I can continue
 ## full provisioning with Ansible
 
-USERNAME="Brian Onn"
-EMAIL="brian.a.onn@gmail.com"
+NAME="Example User"
+EMAIL="user@example.com"
+
+# TODO get USER and EMAIL from any existing .gitconfig, and prompt the user with these defaults
 
 tmpdir=$(mktemp -d)
 function cleanup {
@@ -21,17 +23,17 @@ if [[ -z $(which brew) ]]; then
 fi
 echo OK
 
-# git 
+# git
 echo -n "Checking for git ... "
 if [[ -z $(which git) ]]; then
   echo -n "installing ..."
   brew install git
 fi
-git config --global user.name "${USERNAME}"
+git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
 echo OK
 
-# pip 
+# pip
 echo -n "Checking for pip ... "
 if [[ -z $(which pip) ]]; then
   echo -n "installing ..."
@@ -41,20 +43,20 @@ if [[ -z $(which pip) ]]; then
 fi
 echo OK
 
-# ansible 
+# ansible
 echo -n "Checking for ansible ... "
 if [[ -z $(which ansible) ]]; then
   echo -n "installing ..."
-  sudo -H pip install ansible  
+  sudo -H pip install ansible
 fi
 echo OK
 
-# awscli 
+# awscli
 echo -n "Checking for awscli ... "
 if [[ -z $(which aws) ]]; then
   echo -n "installing ..."
-  pip install nose tornado --user 
-  pip install awscli --user 
+  pip install nose tornado --user
+  pip install awscli --user
 fi
 echo OK
 
@@ -64,22 +66,22 @@ rcchanged=0
 Python_Version="$(python -V 2>&1)"
 Python_Version=${Python_Version:7:4}
 Python_Version=${Python_Version%.}
-[[ ! -s $HOME/.bashrc ]] && touch $HOME/.bashrc 
-if [[ -z "$(egrep 'PATH=.*HOME/Library/Python' "$HOME/.bashrc" 2>/dev/null )" ]] ; then 
+[[ ! -s $HOME/.bashrc ]] && touch $HOME/.bashrc
+if [[ -z "$(egrep 'PATH=.*HOME/Library/Python' "$HOME/.bashrc" 2>/dev/null )" ]] ; then
   cat >> $HOME/.bashrc <<!EOF!
 PATH="\$HOME/Library/Python/${Python_Version}/bin:\$PATH"
 !EOF!
 rcchanged=1
-fi 
+fi
 
-# iTerm is weird, it sources .profile. Make .profile source bashrc 
+# iTerm is weird, it sources .profile. Make .profile source bashrc
 [[ ! -s $HOME/.profile ]] && touch $HOME/.profile
-if [[ -z "$(egrep 'source.*bashrc' $HOME/.profile 2>/dev/null )" ]] ; then 
+if [[ -z "$(egrep 'source.*bashrc' $HOME/.profile 2>/dev/null )" ]] ; then
     cat >> $HOME/.profile <<!EOF!
 [[ -s \$HOME/.bashrc ]] && source \$HOME/.bashrc
 !EOF!
 rcchanged=1
-fi 
+fi
 
 [[ ${rcchanged} = 1 ]] && {
     echo "=========================================================="

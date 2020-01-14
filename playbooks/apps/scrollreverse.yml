@@ -10,7 +10,6 @@
     download_filetype: zip
     install_method: copy
     install_dest: /Applications/Utilities
-    add_to_dock: no
     accessibility: yes
   roles:
     - init

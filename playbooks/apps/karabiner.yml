@@ -10,6 +10,7 @@
     install_method: dmg
     download_filetype: dmg
     add_to_dock: no
+    accessibility: yes
   roles:
     - init
     - install

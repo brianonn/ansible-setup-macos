@@ -10,6 +10,7 @@
     download_filetype: zip
     install_method: dmg
     add_to_dock: yes
+    accessibility: yes
   roles:
     - init
     - install

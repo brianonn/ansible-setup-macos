@@ -7,7 +7,8 @@ This repository contains ansible playbooks to setup a mac
 1. on a fresh install, create the user, i.e. my username `brian`
 1. save the script `bootstrap.sh` from this repository to your local disk. (i.e. view raw and save it)
 1. run the script `bootstrap.sh` on the new MacOS installation to set it up
-1. finally run `make` to get things going.
+1. exit the shell and start a new one before continuing to the next step
+1. run `make` to start the setup via ansible
 1. have a coffee for 10-15 mins while it installs everything for you
 
 ## The parts...

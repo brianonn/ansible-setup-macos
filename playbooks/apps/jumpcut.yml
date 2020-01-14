@@ -10,7 +10,8 @@
     download_filetype: tgz
     install_method: dmg
     add_to_dock: no
-  roles: 
+    accessibility: yes
+  roles:
     - init
     - install
     - cleanup

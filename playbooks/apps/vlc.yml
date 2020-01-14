@@ -9,7 +9,6 @@
     installer_type: app
     download_filetype: dmg
     install_method: dmg
-    add_to_dock: no
   roles:
     - init
     - install

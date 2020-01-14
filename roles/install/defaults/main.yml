@@ -1,0 +1,5 @@
+---
+# defaults for the install role
+add_to_dock: no
+accessibility: no
+

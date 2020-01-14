@@ -10,7 +10,7 @@
     download_filetype: dmg
     install_method: dmg
     add_to_dock: yes
-  roles: 
+  roles:
     - init
     - install
     - cleanup
