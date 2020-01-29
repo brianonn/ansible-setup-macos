@@ -1,5 +1,4 @@
 ---
-# Synergy needs to be added to the accessibility list.
 # The 'accessibility: yes' flag is a placeholder and does nothing
 - hosts: local
   name: Install Spotify App
@@ -12,7 +11,7 @@
     download_filetype: dmg
     install_method: dmg
     add_to_dock: yes
-    accessibility: yes
+    accessibility: no
   roles:
     - init
     - install
