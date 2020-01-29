@@ -1,13 +1,12 @@
 ---
 
 ##
-## Run the install roles. 
+## Run the install roles.
 ##   creates the download dir for the install roles
 ##
 - name: Install apps
   hosts: local
   gather_facts: no
-
 
 - import_playbook: apps/iterm2.yml
 - import_playbook: apps/slack.yml
@@ -23,6 +22,8 @@
 - import_playbook: apps/docker.yml
 - import_playbook: apps/vagrant.yml
 - import_playbook: apps/virtualbox.yml
+- import_playbook: apps/synergy.yml
+- import_playbook: apps/spotify.yml
 
 - name: Install base utilities
   hosts: local
