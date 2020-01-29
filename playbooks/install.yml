@@ -24,6 +24,7 @@
 - import_playbook: apps/virtualbox.yml
 - import_playbook: apps/synergy.yml
 - import_playbook: apps/spotify.yml
+- import_playbook: apps/controlplane.yml
 
 - name: Install base utilities
   hosts: local
