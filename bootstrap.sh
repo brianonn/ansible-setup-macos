@@ -74,6 +74,9 @@ PATH="\$HOME/Library/Python/${Python_Version}/bin:\$PATH"
 rcchanged=1
 fi
 
+# Pygments
+sudo easy_install Pygments
+
 # iTerm is weird, it sources .profile. Make .profile source bashrc
 [[ ! -s $HOME/.profile ]] && touch $HOME/.profile
 if [[ -z "$(egrep 'source.*bashrc' $HOME/.profile 2>/dev/null )" ]] ; then
