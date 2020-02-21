@@ -26,10 +26,10 @@
 - import_playbook: apps/spotify.yml
 - import_playbook: apps/controlplane.yml
 
-- name: Install base utilities
+- name: Install homebrew add-on utilities
   hosts: local
   tasks:
-  - import_tasks: brew.yml
+  - import_tasks: homebrew.yml
 
 - name: Setup Preferences
   hosts: local
