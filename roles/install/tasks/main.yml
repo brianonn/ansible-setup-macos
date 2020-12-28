@@ -22,6 +22,9 @@
 - include: copy_dest.yml
   when: installer_type == 'copy'
 
+- include: install_pkg.yml
+  when: installer_type == 'pkg'
+
 - include: dmg_unmount.yml
   when: download_filetype == 'dmg'
 

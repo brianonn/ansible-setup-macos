@@ -1,0 +1,17 @@
+---
+
+##
+## run the pkg installer
+##
+
+## installer -pkg /path/to/package.pkg -target /
+
+- name: 'Installing MacOS PKG bundle'
+  become: yes
+  command:
+    argv:
+      - 'installer'
+      - '-pkg'
+      - '{{ install_src }}/vagrant.pkg'
+      -  '-target'
+      - '/'

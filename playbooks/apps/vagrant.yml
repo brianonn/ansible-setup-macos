@@ -1,7 +1,8 @@
 ---
-- hosts: local
-  name: Install Hashicorp Vagrant
-  become: no
+
+- name: Install Hashicorp Vagrant
+  hosts: localhost
+  become: yes
   gather_facts: no
   vars:
     app_name: Vagrant
@@ -9,7 +10,7 @@
     installer_type: pkg
     install_method: dmg
     download_filetype: dmg
-    add_to_dock: yes
+    add_to_dock: no
   roles:
     - init
     - install
