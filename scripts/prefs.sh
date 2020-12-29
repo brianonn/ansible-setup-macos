@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# inspired by 
+# inspired by
 # ~/.macos — https://mths.be/macos
 
 # Close any open System Preferences panes, to prevent them from overriding
@@ -929,5 +929,11 @@ for app in "Activity Monitor" \
 	killall "${app}" &> /dev/null
 done
 
+
+##
+## fonts
+##
+brew tap homebrew/cask-fonts
+brew install --cask font-iosevka
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
