@@ -21,6 +21,7 @@
       - ag
       - awscli
       - bash
+      - bazaar
       - binutils
       - colordiff
       - coreutils
@@ -29,11 +30,15 @@
       - dockutil
       - doctl
       - emacs
+      - gh
+      - git
+      - gmp
       - gnu-tar
       - gnupg
       - gnutls
       - go
       - gpg
+      - graphviz
       - gzip
       - helm
       - htop
@@ -43,24 +48,34 @@
       - kubernetes-helm
       - m-cli
       - mercurial  # needed for GVM (Go Version Manager)
+      - minikube
       - ncftp
       - ncurses
+      - nettle
+      - nfpm
       - nmap
       - openssl
+      - p7zip
       - pandoc
       - pcre
+      - protobuf
       - python@2
       - python@3
       - readline
+      - rg
       - shellcheck
+      - socat
       - sops
+      - speedtest
       - sqlite
       - terraform
       - the_silver_searcher
       - tmux
       - tree
+      - unbound
       - unrar
       - watch
-      - watch
+      - webp
       - wget
       - xz
+      - youtube-dl
