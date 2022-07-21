@@ -33,6 +33,20 @@ git config --global user.name "${NAME}"
 git config --global user.email "${EMAIL}"
 echo OK
 
+# unshallow homebrew for updates
+HOMEBREW_LIBRARY="/usr/local/Homebrew/Library"
+if [[ -d "$HOMEBREW_LIBRARY" ]]; then
+  echo "checking for shallow clones in homebrew..."
+  if [[ -f "$HOMEBREW_LIBRARY/Taps/homebrew/homebrew-core/.git/shallow" ]]; then
+    echo "Unshallowing homebrew-core ... "
+    git -C "$HOMEBREW_LIBRARY/Taps/homebrew/homebrew-core" fetch --unshallow
+  fi
+  if [[ -f "$HOMEBREW_LIBRARY/Taps/homebrew/homebrew-cask/.git/shallow" ]]; then
+    echo "Unshallowing homebrew-cask ... "
+    git -C "$HOMEBREW_LIBRARY/Taps/homebrew/homebrew-cask" fetch --unshallow
+  fi
+fi
+
 # pip
 echo -n "Checking for pip ... "
 if [[ -z $(which pip) ]]; then
