@@ -21,7 +21,7 @@ $(VAULTFILE):
 	read -s -p '   Sudo Password: ' password && echo && \
 	read -s -p '   Confirm Sudo Password: ' password2 && echo && \
 	if test "$$password" -ne "$$password2" ; then echo "Passwords don't match"; exit 1 ; fi && \
-	ansible-vault encrypt_string "$$password" --name 'ansible_become_pass' > $(VAULTFILaE)
+	ansible-vault encrypt_string "$$password" --name 'ansible_become_pass' > $(VAULTFILE)
 
 sudo: $(VAULTFILE)
 
