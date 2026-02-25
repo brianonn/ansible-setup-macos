@@ -18,7 +18,7 @@ This repository contains ansible playbooks to setup a mac
 
 This will create a temporary download directory and installation directory in the RAM Disk and install all the applications that are listed in `playbooks/apps/*.yml`. It will then setup some preferences from the `playbooks/prefs.yml` file.  Finally, `playbooks/cleanup.yml` will delete the RAM disk.
 
-The `Makefile` has 4 targets: `all`, `init`, `plays`, and `cleanup`.  The default target is `all`. It is intended to start the installation and configuration with a call to simpley `make` or `make all`
+The `Makefile` has 4 targets: `all`, `init`, `plays`, and `cleanup`.  The default target is `all`. It is intended to start the installation and configuration with a call to simply `make` or `make all`
 
 ## TODO
 1. Enable support for adding apps to accessibility and automation on the Privacy and Security settings of Preferences.  This is hard because of SIP in High Sierra and Mojaave, which makes the TCC.db database readonly and SIP protected now.
